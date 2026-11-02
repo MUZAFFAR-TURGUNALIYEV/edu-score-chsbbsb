@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>EduScore — Baholash</title>
+
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+    <link rel="stylesheet" href="assessment.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js"></script>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="navbar">
+
+        <div class="logo">
+            EduScore
+        </div>
+
+        <div class="teacher">
+
+            <span id="teacherName">O‘qituvchi</span>
+
+            <div class="user-icon">
+                👤
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+<main>
+
+    <section class="page-header">
+
+        <div>
+
+            <h1>
+                Baholash
+            </h1>
+
+            <p id="pageDescription">
+                O‘quvchilarning topshiriqlar bo‘yicha ballarini kiriting.
+            </p>
+
+        </div>
+
+        <div class="info">
+
+            <span id="className">
+                —
+            </span>
+
+            <span id="subjectName">
+                —
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- BAHOLASH TURINI TANLASH -->
+
+    <section style="margin-bottom: 20px;">
+
+        <div class="input-group">
+
+            <label for="assessmentType">
+                Baholash turini tanlang
+            </label>
+
+            <select id="assessmentType">
+
+                <option value="BSB">
+                    BSB
+                </option>
+
+                <option value="CHSB">
+                    CHSB
+                </option>
+
+            </select>
+
+        </div>
+
+    </section>
+
+
+    <!-- BAHOLASH JADVALI -->
+
+    <section class="assessment-card">
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr id="tableHeader">
+
+                        <th>
+                            №
+                        </th>
+
+                        <th class="student-column">
+                            O‘quvchi
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="studentTable">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <div class="bottom">
+
+            <div class="total">
+
+                O‘quvchilar:
+
+                <strong id="studentCount">0</strong>
+
+            </div>
+
+            <button id="saveButton">
+                Saqlash
+            </button>
+
+            <button id="downloadExcelButton">
+                Excel yuklab olish
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- BAHOLASH TURINI BOSHQARISH -->
+
+<script>
+
+    // Sahifa ochilishidan oldin tanlovni o'rnatish
+    const savedAssessmentType =
+        localStorage.getItem("assessmentType") || "BSB";
+
+    document.getElementById("assessmentType").value =
+        savedAssessmentType;
+
+    // BSB / CHSB almashtirish
+    document.getElementById("assessmentType").addEventListener(
+        "change",
+        function () {
+
+            localStorage.setItem(
+                "assessmentType",
+                this.value
+            );
+
+            location.reload();
+
+        }
+    );
+
+</script>
+
+
+<!-- BAHOLASH JAVASCRIPT FAYLLARI -->
+
+<script src="assessment.js"></script>
+
+<script src="chsb.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,725 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Instrument+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+    --bg: #050e0c;
+    --surface: #0d1915;
+    --card: #102019;
+    --card-light: #152820;
+    --border: rgba(255,255,255,.09);
+
+    --text: #eef4f1;
+    --muted: #91a79e;
+
+    --green: #2fbf88;
+    --green-light: #c5e99a;
+    --gold: #e3c27a;
+    --red: #ef6a60;
+
+    --font-display: 'Familjen Grotesk', sans-serif;
+    --font-body: 'Instrument Sans', sans-serif;
+
+    --num-col: 58px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: var(--font-body);
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at 85% 0%, rgba(47,191,136,.11), transparent 35%),
+        radial-gradient(ellipse at 0% 45%, rgba(197,233,154,.045), transparent 35%),
+        var(--bg);
+    -webkit-font-smoothing: antialiased;
+    font-variant-numeric: tabular-nums;
+}
+
+::selection {
+    background: var(--green);
+    color: #04110c;
+}
+
+button, input, select {
+    font: inherit;
+}
+
+button, select {
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 3px;
+}
+
+/* HEADER */
+
+header {
+    height: 72px;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    background: rgba(5,14,12,.84);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-family: var(--font-display);
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--text);
+}
+
+.logo::before {
+    content: "";
+    width: 23px;
+    height: 23px;
+    border-radius: 7px;
+    background:
+        linear-gradient(135deg, var(--green) 0 48%, transparent 48%),
+        linear-gradient(315deg, var(--green-light) 0 48%, transparent 48%),
+        linear-gradient(45deg, var(--gold) 0 48%, transparent 48%),
+        linear-gradient(225deg, var(--red) 0 48%, transparent 48%);
+}
+
+.teacher {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 5px 6px 5px 17px;
+    border: 1px solid var(--border);
+    border-radius: 50px;
+    background: var(--card);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.user-icon {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(47,191,136,.15);
+    border: 1px solid rgba(47,191,136,.3);
+    font-size: 15px;
+}
+
+/* MAIN */
+
+main {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 58px 0 90px;
+}
+
+/* PAGE HEADER */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 25px;
+    margin-bottom: 34px;
+    animation: rise .6s ease both;
+}
+
+.page-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(40px, 6vw, 64px);
+    line-height: 1;
+    letter-spacing: -2px;
+    margin-bottom: 13px;
+}
+
+.page-header p {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.info {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.info span {
+    padding: 11px 18px;
+    border-radius: 11px;
+    border: 1px solid var(--border);
+    background: var(--card);
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.info span:first-child {
+    color: var(--green-light);
+    background: rgba(47,191,136,.1);
+    border-color: rgba(47,191,136,.25);
+}
+
+/* ASSESSMENT TYPE */
+
+main > section[style] {
+    margin-bottom: 20px !important;
+    padding: 20px 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.input-group label {
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.input-group select {
+    min-width: 145px;
+    height: 43px;
+    padding: 0 14px;
+    color: var(--text);
+    background: var(--card-light);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    outline: none;
+}
+
+.input-group select:focus {
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(47,191,136,.12);
+}
+
+select option {
+    background: #102019;
+    color: var(--text);
+}
+
+/* ASSESSMENT CARD */
+
+.assessment-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    box-shadow: 0 25px 65px rgba(0,0,0,.22);
+    animation: rise .7s .1s ease both;
+}
+
+.assessment-card::before {
+    content: "";
+    display: block;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--green),
+        var(--green-light),
+        var(--gold)
+    );
+}
+
+/* TABLE */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #315044 var(--surface);
+}
+
+table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+th {
+    height: 58px;
+    padding: 12px;
+    background: #152820;
+    color: #b9ccc3;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border);
+}
+
+td {
+    height: 64px;
+    padding: 9px 13px;
+    background: var(--surface);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,.055);
+    transition: background .15s;
+}
+
+tbody tr:hover td {
+    background: #14251d;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+th:first-child,
+td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 3;
+    width: var(--num-col);
+    min-width: var(--num-col);
+    max-width: var(--num-col);
+    padding: 0 8px;
+    background: #152820;
+}
+
+tbody td:first-child {
+    color: var(--muted);
+    font-family: var(--font-display);
+    font-weight: 600;
+}
+
+.student-column {
+    min-width: 230px;
+    text-align: left;
+}
+
+.student-name {
+    min-width: 230px;
+    color: var(--text);
+    text-align: left;
+    font-weight: 600;
+}
+
+th.student-column,
+td.student-name {
+    position: sticky;
+    left: var(--num-col);
+    z-index: 2;
+    background: #102019;
+    border-right: 1px solid var(--border);
+}
+
+tbody tr:hover td.student-name {
+    background: #14251d;
+}
+
+/* BSB SCORE INPUT */
+
+.score-input {
+    width: 68px;
+    height: 43px;
+    padding: 5px;
+    color: var(--text);
+    background: #172a21;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px;
+    outline: none;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    appearance: textfield;
+    -moz-appearance: textfield;
+    transition: .2s;
+}
+
+.score-input::-webkit-inner-spin-button,
+.score-input::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.score-input:hover {
+    border-color: rgba(47,191,136,.5);
+}
+
+.score-input:focus {
+    background: #1a3026;
+    border-color: var(--green);
+    box-shadow: 0 0 0 3px rgba(47,191,136,.13);
+}
+
+.score-input:out-of-range {
+    border-color: var(--red);
+    background: rgba(239,106,96,.1);
+}
+
+/* BOTTOM ACTIONS */
+
+.bottom {
+    min-height: 88px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #0a1712;
+    border-top: 1px solid var(--border);
+}
+
+.total {
+    margin-right: auto;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.total strong {
+    display: inline-block;
+    min-width: 36px;
+    margin-left: 7px;
+    padding: 5px 11px;
+    border-radius: 30px;
+    color: var(--green-light);
+    background: rgba(47,191,136,.12);
+    border: 1px solid rgba(47,191,136,.25);
+    font-family: var(--font-display);
+    font-size: 15px;
+}
+
+#saveButton,
+#downloadExcelButton,
+#saveCHSBButton,
+#downloadCHSBButton {
+    min-height: 48px;
+    padding: 0 23px;
+    border-radius: 11px;
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#saveButton,
+#saveCHSBButton {
+    color: #06150e;
+    background: linear-gradient(135deg, var(--green-light), var(--green));
+    border: 1px solid transparent;
+    box-shadow: 0 8px 22px rgba(47,191,136,.13);
+}
+
+#saveButton:hover,
+#saveCHSBButton:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.08);
+    box-shadow: 0 12px 25px rgba(47,191,136,.2);
+}
+
+#downloadExcelButton,
+#downloadCHSBButton {
+    color: var(--text);
+    background: var(--card-light);
+    border: 1px solid rgba(255,255,255,.13);
+}
+
+#downloadExcelButton:hover,
+#downloadCHSBButton:hover {
+    color: var(--green-light);
+    border-color: var(--green);
+    transform: translateY(-2px);
+}
+
+#saveButton:active,
+#downloadExcelButton:active,
+#saveCHSBButton:active,
+#downloadCHSBButton:active {
+    transform: translateY(0);
+}
+
+button:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* CHSB DYNAMIC CONTENT */
+
+.assessment-card > div {
+    color: var(--text);
+}
+
+.assessment-card h2 {
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: 26px;
+    letter-spacing: -.5px;
+}
+
+.assessment-card p {
+    color: var(--muted) !important;
+}
+
+.assessment-card label {
+    color: var(--muted);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.assessment-card select,
+.assessment-card input[type="text"] {
+    min-height: 40px;
+    padding: 8px 12px !important;
+    color: var(--text) !important;
+    background: var(--card-light) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 9px !important;
+    outline: none;
+}
+
+.assessment-card select:focus,
+.assessment-card input[type="text"]:focus {
+    border-color: var(--green) !important;
+    box-shadow: 0 0 0 3px rgba(47,191,136,.12);
+}
+
+#chsbTable {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: separate !important;
+    border-spacing: 0;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+#chsbTable th,
+#chsbTable td {
+    padding: 12px 10px !important;
+    color: var(--text) !important;
+    border: 1px solid var(--border) !important;
+    text-align: center;
+    font-size: 13px;
+}
+
+#chsbTable thead th {
+    background: #172b21 !important;
+    color: var(--green-light) !important;
+    font-weight: 700;
+}
+
+#chsbTable tbody td {
+    background: #0d1c15 !important;
+}
+
+#chsbTable tbody tr:hover td {
+    background: #172a20 !important;
+}
+
+#chsbTable tfoot th {
+    background: #14271e !important;
+    color: var(--gold) !important;
+    font-weight: 700;
+}
+
+.chsb-score-input {
+    width: 75px !important;
+    height: 40px;
+    padding: 7px !important;
+    color: var(--text) !important;
+    background: #172a21 !important;
+    border: 1px solid rgba(255,255,255,.13) !important;
+    border-radius: 9px !important;
+    text-align: center;
+    outline: none;
+    font-family: var(--font-display);
+    font-size: 16px;
+    transition: .2s;
+}
+
+.chsb-score-input:focus {
+    border-color: var(--green) !important;
+    box-shadow: 0 0 0 3px rgba(47,191,136,.13);
+}
+
+#studentCount {
+    color: var(--green-light);
+    font-family: var(--font-display);
+    font-size: 17px;
+}
+
+/* ANIMATION */
+
+@keyframes rise {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* TABLET */
+
+@media (max-width: 850px) {
+    main {
+        padding-top: 42px;
+    }
+
+    .page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .info {
+        width: 100%;
+    }
+
+    .info span {
+        flex: 1;
+        text-align: center;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+    :root {
+        --num-col: 48px;
+    }
+
+    header {
+        height: 64px;
+    }
+
+    .navbar,
+    main {
+        width: 92%;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .teacher {
+        font-size: 12px;
+        padding-left: 12px;
+    }
+
+    .user-icon {
+        width: 32px;
+        height: 32px;
+    }
+
+    main {
+        padding-top: 38px;
+        padding-bottom: 60px;
+    }
+
+    .page-header h1 {
+        font-size: 43px;
+    }
+
+    .page-header p {
+        font-size: 14px;
+    }
+
+    .info {
+        gap: 8px;
+    }
+
+    .info span {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+
+    main > section[style] {
+        padding: 16px;
+    }
+
+    .input-group {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .input-group select {
+        width: 100%;
+    }
+
+    .assessment-card {
+        border-radius: 15px;
+    }
+
+    .bottom {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px;
+    }
+
+    .total {
+        margin: 0 0 5px;
+        text-align: center;
+    }
+
+    #saveButton,
+    #downloadExcelButton,
+    #saveCHSBButton,
+    #downloadCHSBButton {
+        width: 100%;
+    }
+
+    .assessment-card h2 {
+        font-size: 23px;
+    }
+
+    #chsbTable th,
+    #chsbTable td {
+        padding: 9px 7px !important;
+        font-size: 12px;
+    }
+
+    .chsb-score-input {
+        width: 65px !important;
+    }
+}

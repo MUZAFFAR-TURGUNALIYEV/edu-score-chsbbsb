@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kirish — EduScore</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-card">
+
+        <div class="logo">EduScore</div>
+
+        <h1>Xush kelibsiz!</h1>
+
+        <p class="subtitle">
+            Hisobingizga kirish uchun ma’lumotlarni kiriting
+        </p>
+
+        <form id="loginForm">
+
+            <div class="input-group">
+                <label for="username">Login</label>
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Loginingiz"
+                    required
+                    minlength="3"
+                    maxlength="20"
+                    pattern="[a-zA-Z0-9._]+"
+                    autocomplete="username"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="password">Parol</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Parolingiz"
+                    required
+                    autocomplete="current-password"
+                >
+            </div>
+
+            <p id="message" class="message" role="status"></p>
+
+            <button id="loginButton" type="submit">
+                Kirish
+            </button>
+
+        </form>
+
+        <p class="bottom-text">
+            Hisobingiz yo‘qmi?
+            <a href="register.html">Ro‘yxatdan o‘tish</a>
+        </p>
+
+    </div>
+</div>
+
+<script type="module" src="login.js"></script>
+</body>
+</html>

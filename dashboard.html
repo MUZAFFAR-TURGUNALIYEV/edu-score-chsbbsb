@@ -1,0 +1,212 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>EduScore — Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            EduScore
+        </div>
+
+        <div class="user">
+            <span id="teacherName">O‘qituvchi</span>
+
+            <div class="user-icon">
+                👤
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<main>
+
+<section class="welcome">
+
+    <h1>
+        Salom, <span id="welcomeName">O‘qituvchi</span> 👋
+    </h1>
+
+    <p>
+        Baholashni boshlash uchun kerakli ma'lumotlarni kiriting.
+    </p>
+
+</section>
+
+<section class="dashboard-card">
+
+    <h2>
+        Yangi baholash
+    </h2>
+
+    <p class="card-description">
+        Maktab, sinf, fan va topshiriqlar sonini belgilang.
+    </p>
+
+    <div class="form-grid">
+
+        <!-- Maktab tanlash -->
+
+        <div class="input-group">
+
+            <label for="school">
+                Maktab
+            </label>
+
+            <select id="school">
+
+                <option value="">
+                    Maktabni tanlang
+                </option>
+
+                <option value="yangiyer-9">
+                    Yangiyer shahar 9-maktab
+                </option>
+
+                <option value="guliston-28">
+                    Guliston tumani 28-maktab
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="input-group">
+
+            <label for="class">
+                Sinf
+            </label>
+
+            <select id="class">
+
+                <option value="">
+                    Sinfni tanlang
+                </option>
+
+                <option value="1-A">1-A</option>
+                <option value="1-B">1-B</option>
+
+                <option value="2-A">2-A</option>
+                <option value="2-B">2-B</option>
+
+                <option value="3-A">3-A</option>
+                <option value="3-B">3-B</option>
+
+                <option value="4-A">4-A</option>
+                <option value="4-B">4-B</option>
+
+                <option value="5-A">5-A</option>
+                <option value="5-B">5-B</option>
+
+                <option value="6-A">6-A</option>
+                <option value="6-B">6-B</option>
+
+                <option value="7-A">7-A</option>
+                <option value="7-B">7-B</option>
+
+                <option value="8-A">8-A</option>
+                <option value="8-B">8-B</option>
+
+                <option value="9-A">9-A</option>
+                <option value="9-B">9-B</option>
+
+                <option value="10-A">10-A</option>
+                <option value="10-B">10-B</option>
+
+                <option value="11-A">11-A</option>
+                <option value="11-B">11-B</option>
+
+            </select>
+
+        </div>
+
+        <div class="input-group">
+
+            <label for="subject">
+                Fan
+            </label>
+
+            <select id="subject">
+
+                <option value="">
+                    Fanni tanlang
+                </option>
+
+                <option value="Matematika">Matematika</option>
+                <option value="Ona tili">Ona tili</option>
+                <option value="Ingliz tili">Ingliz tili</option>
+                <option value="Fizika">Fizika</option>
+                <option value="Kimyo">Kimyo</option>
+                <option value="Biologiya">Biologiya</option>
+                <option value="Tarix">Tarix</option>
+                <option value="Informatika">Informatika</option>
+
+            </select>
+
+        </div>
+
+        <!-- YANGI: BSB / CHSB tanlash -->
+
+        <div class="input-group">
+
+            <label for="assessmentType">
+                Baholash turi
+            </label>
+
+            <select id="assessmentType">
+
+                <option value="">
+                    Baholash turini tanlang
+                </option>
+
+                <option value="BSB">BSB</option>
+                <option value="CHSB">CHSB</option>
+
+            </select>
+
+        </div>
+
+        <div class="input-group">
+
+            <label for="tasks">
+                Topshiriqlar soni
+            </label>
+
+            <input
+                type="number"
+                id="tasks"
+                min="1"
+                placeholder="Masalan: 5"
+            >
+
+        </div>
+
+    </div>
+
+    <button id="nextButton" class="next-button">
+        Keyingi
+        <span>→</span>
+    </button>
+
+</section>
+
+</main>
+
+<script src="database.js"></script>
+<script src="dashboard.js"></script>
+
+</body>
+
+</html>

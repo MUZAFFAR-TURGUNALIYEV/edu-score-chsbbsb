@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ro‘yxatdan o‘tish — EduScore</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="login-container">
+    <div class="login-card">
+
+        <div class="logo">EduScore</div>
+
+        <h1>Hisob yaratish</h1>
+
+        <p class="subtitle">
+            EduScore tizimiga ro‘yxatdan o‘ting
+        </p>
+
+        <form id="registerForm">
+
+            <div class="input-group">
+                <label for="name">Ism va familiya</label>
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Ismingiz va familiyangiz"
+                    required
+                    maxlength="80"
+                    autocomplete="name"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="username">Login</label>
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Masalan: muzaffar01"
+                    required
+                    minlength="3"
+                    maxlength="20"
+                    pattern="[a-zA-Z0-9._]+"
+                    autocomplete="username"
+                >
+                <small>3–20 ta belgi: lotin harflari, raqam, nuqta yoki _</small>
+            </div>
+
+            <div class="input-group">
+                <label for="phone">Telefon raqami</label>
+                <input
+                    type="tel"
+                    id="phone"
+                    placeholder="+998901234567"
+                    required
+                    autocomplete="tel"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="password">Parol</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Kamida 6 ta belgi"
+                    required
+                    minlength="6"
+                    autocomplete="new-password"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="confirmPassword">Parolni tasdiqlash</label>
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Parolni qayta kiriting"
+                    required
+                    minlength="6"
+                    autocomplete="new-password"
+                >
+            </div>
+
+            <p id="message" class="message" role="status"></p>
+
+            <button id="registerButton" type="submit">
+                Ro‘yxatdan o‘tish
+            </button>
+
+        </form>
+
+        <p class="bottom-text">
+            Hisobingiz bormi?
+            <a href="login.html">Kirish</a>
+        </p>
+
+    </div>
+</div>
+
+<script type="module" src="register.js"></script>
+</body>
+</html>
